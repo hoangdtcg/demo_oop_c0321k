@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    img{
+        width: 50px;
+    }
+</style>
+<body>
+<button onclick="addFruit()">Thêm hoa quả</button>
+<table id="fruit" border="1px"></table>
+<script>
+    //>ES6
+    class Fruit {
+        constructor(_id, _name, _price) {
+            this.id = _id;
+            this.name = _name;
+            this.price = _price;
+            this.image = 'imgs/logo.jpeg'
+        }
+    }
+
+    //ES5
+    // let Fruit = function () {
+    //     this.id = 1;
+    //     this.name = "Apple";
+    //     this.price = 3000;
+    // }
+
+    let apple = [1, "Apple", 3000];
+    let mangoObj = new Fruit(10, "Mango", 10000);
+    mangoObj.image = 'https://cdn.dribbble.com/users/2172174/screenshots/10664320/media/586ef6ea7443418799fa964c28f30308.png?compress=1&resize=400x300';
+    let cucumberObj = new Fruit(11, "Quả dưa chuột", 8000);
+    let obj3 = new Fruit(12, "Quả cam", 8000);
+    let obj4 = new Fruit(13, "Quả dưa hấu", 8000);
+
+    let fruits = [mangoObj, cucumberObj,obj3,obj4];
+
+    function addFruit() {
+        let id = prompt('Nhập id');
+        let name = prompt('Nhập tên');
+        let price = prompt('Nhập giá');
+        let image = prompt('Nhập ảnh');
+        let fruit = new Fruit(id,name,price);
+        fruit.image = image;
+
+        fruits.push(fruit);
+        display();
+    }
+
+    function display() {
+        let str = '';
+        for (let i = 0; i < fruits.length; i++) {
+            // str += '<tr>';
+            // str += "<td>" + fruits[i].id + "</td>";
+            // str += "<td><img src="+ fruits[i].image +"></td>";
+            // str += "<td>" + fruits[i].name + "</td>";
+            // str += "<td>" + fruits[i].price + "</td>";
+            // str += "</tr>";
+            
+            str += `<tr>
+                        <td>${fruits[i].id}</td>
+                        <td><img src="${fruits[i].image}"></td>
+                        <td>${fruits[i].name}</td>
+                        <td>${fruits[i].price}</td>
+                    </tr>`;
+        }
+        document.getElementById('fruit').innerHTML = str;
+    }
+
+    display();
+
+    // console.log(mangoObj);
+    // console.log(cucumberObj);
+    // console.log(apple[1]);
+
+    // let appleObj = {
+    //     id:1,
+    //     name:"Apple",
+    //     price:3000
+    // };
+
+    // let bananaObj = {
+    //     id:2,
+    //     name: "Banana",
+    //     price: 2000
+    // }
+
+    // console.log(appleObj['name']);
+    // console.log(appleObj.name);
+    // console.log(bananaObj.name);
+
+</script>
+</body>
+</html>

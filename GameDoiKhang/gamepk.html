@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Fighter.js"></script>
+</head>
+<body>
+<button onclick="fighterAttack(k1,k2)">K1 Attack</button>
+<button onclick="fighterAttack(k2,k1)">K2 Attack</button>
+<p id="k1-hp">100</p>
+<p id="k2-hp">100</p>
+<script>
+    let k1 = new Fighter("C0321K1");
+    let k2 = new Fighter("C0321K2");
+    function fighterAttack(p1,p2) {
+        p1.attack(p2);
+        document.getElementById('k1-hp').innerHTML = k1.hp;
+        document.getElementById('k2-hp').innerHTML = k2.hp;
+    }
+</script>
+</body>
+</html>
